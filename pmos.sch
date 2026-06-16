@@ -7,20 +7,21 @@ F {}
 E {}
 N -150 70 -150 90 {lab=0}
 N -190 -40 -150 -40 {lab=vgs}
-N -150 -0 -150 10 {lab=vgs}
 N 140 30 140 70 {lab=0}
+N -150 -0 -150 10 {lab=vgs}
 N 140 -80 190 -80 {lab=vds}
-N 140 -50 140 -30 {lab=vds}
-N -30 30 -30 80 {lab=0}
-N -30 80 10 80 {lab=0}
-N -30 -0 10 0 {lab=0}
-N 10 0 10 80 {lab=0}
-N -150 -0 -70 -0 {lab=vgs}
+N -150 -0 -50 -0 {lab=vgs}
 N -150 -40 -150 -0 {lab=vgs}
-N -30 -50 -30 -30 {lab=vds}
-N -30 -50 140 -50 {lab=vds}
-N 140 -80 140 -50 {lab=vds}
-C {/foss/pdks/sky130A/libs.tech/xschem/sky130_fd_pr/pfet_01v8.sym} -50 0 2 1 {name=M1
+N -10 50 -10 80 {lab=0}
+N -10 -0 60 -0 {lab=0}
+N 60 0 60 50 {lab=0}
+N -10 50 60 50 {lab=0}
+N -10 30 -10 50 {lab=0}
+N -10 -60 -10 -30 {lab=vds}
+N -10 -60 140 -60 {lab=vds}
+N 140 -80 140 -60 {lab=vds}
+N 140 -60 140 -30 {lab=vds}
+C {/foss/pdks/sky130A/libs.tech/xschem/sky130_fd_pr/pfet_01v8.sym} -30 0 2 1 {name=M1
 W=1
 L=0.15
 nf=1
@@ -42,14 +43,10 @@ C {code.sym} 260 20 0 0 {name=s1 only_toplevel=false value="
    save @m.xm1.msky130_fd_pr__pfet_01v8[gm]
   
   op
-dc v2 0 1.8 0.1 v1 0 1.8 0.6 
+dc v2 0 -8 -2 v1 0 -15 -2 
   plot @m.xm1.msky130_fd_pr__pfet_01v8[id] 
   plot @m.xm1.msky130_fd_pr__pfet_01v8[gm] 
  
-   
-   dc v1 0 1.8 0.1 
-  plot @m.xm1.msky130_fd_pr__pfet_01v8[id] 
-  plot @m.xm1.msky130_fd_pr__pfet_01v8[gm] 
 
   print @m.xm1.msky130_fd_pr__pfet_01v8[id]
   print @m.xm1.msky130_fd_pr__pfet_01v8[gm]
@@ -62,7 +59,8 @@ dc v2 0 1.8 0.1 v1 0 1.8 0.6
 
   write pmos.raw
 .endc
-"}
+"
+}
 C {vsource.sym} -150 40 0 0 {name=V1 value=1 savecurrent=false}
 C {gnd.sym} -10 80 0 0 {name=l1 lab=0}
 C {ipin.sym} -190 -40 0 0 {name=p1 lab=vgs}
